@@ -1,0 +1,1026 @@
+#:import IconLeftWidget kivymd.uix.list.IconLeftWidget
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+<Content0>:
+    orientation: 'vertical'
+    size_hint_y: None
+    height: self.minimum_height
+    CustomCard:
+
+<Content1>:
+    orientation: 'vertical'
+    adaptive_height: True
+    CustomCard:
+
+<Content2>:
+    orientation: 'vertical'
+    adaptive_height: True
+    CustomCard:
+
+<Content3>:
+    orientation: 'vertical'
+    adaptive_height: True
+    CustomCard:
+
+<Content4>:
+    orientation: 'vertical'
+    adaptive_height: True
+    CustomCard:
+
+<Content5>:
+    orientation: 'vertical'
+    adaptive_height: True
+    CustomCard:
+
+<Content6>:
+    orientation: 'vertical'
+    adaptive_height: True
+    CustomCard:
+
+<Content7>:
+    orientation: 'vertical'
+    adaptive_height: True
+    CustomCard:
+
+<Content8>:
+    orientation: 'vertical'
+    adaptive_height: True
+    CustomCard:
+
+<Content9>:
+    orientation: 'vertical'
+    adaptive_height: True
+    CustomCard:
+
+<CustomCard>:
+    id: cs
+    text: 'UN ATTEMPTED'
+    meter: 'Images/Score/unattempted.png'
+    points: ' '
+    attempt: ' '
+    sep_col: 1,1,1,0
+    bg_color: 1,1,1,0
+    back: 'Images/Score/score_card.jpg'
+    radius: [dp(25), dp(0), dp(0), dp(0)]
+    star_1: 'star-outline'
+    star1_color: 1,1,1,1
+    star_2: 'star-outline'
+    star2_color: 1,1,1,1
+    star_3: 'star-outline'
+    star3_color: 1,1,1,1
+    star_4: 'star-outline'
+    star4_color: 1,1,1,1
+    star_5: 'star-outline'
+    star5_color: 1,1,1,1
+    adaptive_height: True
+    MDRelativeLayout:
+        adaptive_height: True
+        MDCard:
+            size_hint_y: None
+            height: dp(100)
+            orientation: "vertical"
+            radius: cs.radius
+            canvas:
+                RoundedRectangle:
+                    radius: cs.radius
+                    source: cs.back
+                    pos: self.pos
+                    size: self.size
+            MDBoxLayout:
+                size_hint_y: None
+                height: dp(60)
+                padding: '3dp'
+                FitImage:
+                    source: cs.meter
+                    size_hint: None,None
+                    height: top.height
+                    width: top.height
+                MDBoxLayout:
+                    id: top
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: self.minimum_height
+                    padding: ['20dp','5dp','5dp','5dp']
+                    spacing: '5dp'
+                    MDLabel:
+                        id: rmks
+                        text: cs.text
+                        size_hint_y: None
+                        height: dp(20)
+                        theme_text_color: 'Custom'
+                        text_color: 1,1,1,1
+                        markup: True
+                        bold: True
+                        font_style: 'H6'
+                    MDLabel:
+                        id: score
+                        text: cs.points
+                        size_hint_y: None
+                        theme_text_color: 'Custom'
+                        text_color: 1,1,1,1
+                        font_style: 'Subtitle1'
+                        bold: True
+                        height: dp(16)
+
+            MDSeparator:
+                color: 1,1,1,.4
+            BoxLayout:
+                size_hint_y: None
+                height: dp(40)
+                padding: '30dp','0dp','0dp','0dp'
+                spacing: '5dp'
+                MDIcon:
+                    icon: cs.star_1
+                    theme_text_color: 'Custom'
+                    text_color: cs.star1_color
+                MDIcon:
+                    icon: cs.star_2
+                    theme_text_color: 'Custom'
+                    text_color: cs.star2_color
+                MDIcon:
+                    icon: cs.star_3
+                    theme_text_color: 'Custom'
+                    text_color: cs.star3_color
+                MDIcon:
+                    icon: cs.star_4
+                    theme_text_color: 'Custom'
+                    text_color: cs.star4_color
+                MDIcon:
+                    icon: cs.star_5
+                    theme_text_color: 'Custom'
+                    text_color: cs.star5_color
+
+        MDLabel:
+            text: cs.attempt
+            theme_text_color: 'Custom'
+            text_color:  1,1,1,1
+            bold: True
+            md_bg_color: cs.bg_color
+            size_hint: None, None
+            width: dp(95)
+            height: self.texture_size[1]
+            pos_hint: {'right': 1, 'top': .92}
+
+        MDSeparator:
+            height: '3dp'
+            pos_hint: {'top': 1}
+            color: cs.sep_col
+
+
+
+
+
+<MainLayout@Screen>:
+
+    ScreenManager:
+        id: mgr
+
+
+        Screen:
+            name: 'Home'
+
+            MDBottomNavigation:
+                id: btm_nav
+                panel_color: rgba(0, 36, 106, 255)
+                theme_text_color: 'Custom'
+                text_color_normal: rgba(142, 148, 181, 255)
+                text_color_active: rgba(255,215,0,255)
+
+                MDBottomNavigationItem:
+                    name: self.text
+                    text: 'Quiz_Zone'
+                    icon: 'script-text'
+                    on_tab_press: app.close_backdrop()
+
+
+        # Screen1
+                    Screen:
+                        canvas.before:
+                            Rectangle:
+                                size: self.size
+                                pos: self.pos
+                                source:'Images/background.png'
+
+                        BoxLayout:
+                            orientation:'vertical'
+
+                            MDToolbar:
+                                title: "Quizora"
+                                elevation: 8
+                                height: '45dp'
+                                md_bg_color: rgba(0, 36, 106, 255)
+                                MDIconButton:
+                                    id: tb_dots
+                                    icon: 'dots-vertical'
+                                    theme_text_color: 'Custom'
+                                    text_color: 1,1,1,1
+                                    ripple_scale: .8
+                                    on_release: app.menu.open()
+                                    pos_hint: {'center_x': .95, 'center_y': .5}
+
+
+                            ScrollView:
+
+                                MDGridLayout:
+                                    cols: 2
+                                    padding: '5dp'
+                                    spacing: '5dp'
+
+
+                                    MDCard:
+                                        focus_behavior: True
+                                        ripple_behavior: True
+                                        focus_color: rgba(210,210,210,255)
+                                        border_radius: dp(20)
+                                        radius: [dp(10)]
+                                        background: 'Images/apple.jpg'
+                                        on_release: app.callback('apple')
+                                        MDRelativeLayout:
+                                            Label:
+                                                text: "[b]Apple Quiz[/b]"
+                                                pos_hint: {'center_x': .5, 'center_y': .15 }
+                                                text_color: rgba(253, 0, 253,255)
+                                                theme_text_color: 'ContrastParentBackground'
+                                                markup: True
+
+
+                                    MDCard:
+                                        ripple_behavior: True
+                                        focus_behavior: True
+                                        focus_color: rgba(210,210,210,255)
+                                        border_radius: dp(20)
+                                        radius: [dp(10)]
+                                        background: 'Images/python.jpg'
+                                        on_release: app.callback('python')
+
+                                        MDRelativeLayout:
+                                            Label:
+                                                text: "[b]Python Quiz[/b]"
+                                                pos_hint: {'center_x': .5, 'center_y': .15 }
+                                                text_color: rgba(253, 0, 253,255)
+                                                theme_text_color: 'ContrastParentBackground'
+                                                markup: True
+                                    MDCard:
+                                        ripple_behavior: True
+                                        focus_behavior: True
+                                        focus_color: rgba(210,210,210,255)
+                                        border_radius: dp(20)
+                                        radius: [dp(10)]
+                                        background: 'Images/india.jpg'
+                                        on_release: app.callback('india')
+
+                                        MDRelativeLayout:
+                                            Label:
+                                                text: "[b]India Quiz[/b]"
+                                                pos_hint: {'center_x': .5, 'center_y': .15 }
+                                                text_color: rgba(253, 0, 253,255)
+                                                theme_text_color: 'ContrastParentBackground'
+                                                markup: True
+                                    MDCard:
+                                        ripple_behavior: True
+                                        focus_behavior: True
+                                        focus_color: rgba(210,210,210,255)
+                                        border_radius: dp(20)
+                                        radius: [dp(10)]
+                                        background: 'Images/android.jpg'
+                                        on_release:app.callback('android')
+
+                                        MDRelativeLayout:
+                                            Label:
+                                                text: "[b]Android Quiz[/b]"
+                                                pos_hint: {'center_x': .5, 'center_y': .15 }
+                                                text_color: rgba(253, 0, 253,255)
+                                                theme_text_color: 'ContrastParentBackground'
+                                                markup: True
+                                    MDCard:
+                                        ripple_behavior: True
+                                        focus_behavior: True
+                                        focus_color: rgba(210,210,210,255)
+                                        border_radius: dp(20)
+                                        radius: [dp(10)]
+                                        background: 'Images/earth.jpg'
+                                        on_release: app.callback('earth')
+
+                                        MDRelativeLayout:
+                                            Label:
+                                                text: "[b]Earth Quiz[/b]"
+                                                pos_hint: {'center_x': .5, 'center_y': .15 }
+                                                text_color: rgba(253, 0, 253,255)
+                                                theme_text_color: 'ContrastParentBackground'
+                                                markup: True
+                                    MDCard:
+                                        ripple_behavior: True
+                                        focus_behavior: True
+                                        focus_color: rgba(210,210,210,255)
+                                        border_radius: dp(20)
+                                        radius: [dp(10)]
+                                        background: 'Images/space.jpg'
+                                        on_release:app.callback('space')
+
+                                        MDRelativeLayout:
+                                            Label:
+                                                text: "[b]Space Quiz[/b]"
+                                                pos_hint: {'center_x': .5, 'center_y': .15 }
+                                                text_color: rgba(253, 0, 253,255)
+                                                theme_text_color: 'ContrastParentBackground'
+                                                markup: True
+                                    MDCard:
+                                        ripple_behavior: True
+                                        focus_behavior: True
+                                        focus_color: rgba(210,210,210,255)
+                                        border_radius: dp(20)
+                                        radius: [dp(10)]
+                                        background: 'Images/marvel.jpg'
+                                        on_release:app.callback('marvel')
+
+                                        MDRelativeLayout:
+                                            Label:
+                                                text: "[b]Marvel Quiz[/b]"
+                                                pos_hint: {'center_x': .5, 'center_y': .15 }
+                                                text_color: rgba(253, 0, 253,255)
+                                                theme_text_color: 'ContrastParentBackground'
+                                                markup: True
+                                    MDCard:
+                                        ripple_behavior: True
+                                        focus_behavior: True
+                                        focus_color: rgba(210,210,210,255)
+                                        border_radius: dp(20)
+                                        radius: [dp(10)]
+                                        background: 'Images/game.png'
+                                        on_release: app.callback('game')
+
+                                        MDRelativeLayout:
+                                            Label:
+                                                text: "[b]Game Quiz[/b]"
+                                                pos_hint: {'center_x': .5, 'center_y': .15 }
+                                                text_color: rgba(253, 0, 253,255)
+                                                theme_text_color: 'ContrastParentBackground'
+                                                markup: True
+                                    MDCard:
+                                        ripple_behavior: True
+                                        focus_behavior: True
+                                        focus_color: rgba(210,210,210,255)
+                                        border_radius: dp(20)
+                                        radius: [dp(10)]
+                                        background: 'Images/naming.png'
+                                        on_release: app.callback('naming')
+
+                                        MDRelativeLayout:
+                                            Label:
+                                                text: "[b]Naming Quiz[/b]"
+                                                pos_hint: {'center_x': .5, 'center_y': .15 }
+                                                text_color: rgba(253, 0, 253,255)
+                                                theme_text_color: 'ContrastParentBackground'
+                                                markup: True
+                                    MDCard:
+                                        ripple_behavior: True
+                                        focus_behavior: True
+                                        focus_color: rgba(210,210,210,255)
+                                        border_radius: dp(20)
+                                        radius: [dp(10)]
+                                        background: 'Images/technology.png'
+                                        on_release: app.callback('tech')
+
+                                        MDRelativeLayout:
+                                            Label:
+                                                text: "[b]Tech Quiz[/b]"
+                                                pos_hint: {'center_x': .5, 'center_y': .15 }
+                                                text_color: rgba(253, 0, 253,255)
+                                                theme_text_color: 'ContrastParentBackground'
+                                                markup: True
+
+                MDBottomNavigationItem:
+                    name: self.text
+                    text: 'Score'
+                    icon: 'bullseye-arrow'
+
+
+        # Screen2
+                    Screen:
+                        MDBackdrop:
+                            id: backdrop
+                            title: 'ScoreBoard'
+                            left_action_items: [['bullseye-arrow', lambda x: None]]
+                            header: False
+                            radius_left: dp(25)
+                            radius_right: dp(0)
+                            _no_ripple_effect: True
+                            front_layer_color: rgba(230, 230, 230, 255)
+                            back_layer_color: rgba(0, 36, 106, 255)
+                            on_close: app.backdrop_onclose()
+                            on_open: app.backdrop_onopen()
+
+                            MDBackdropFrontLayer:
+                                ScrollView:
+                                    MDGridLayout:
+                                        id: front_layer
+                                        cols: 1
+                                        adaptive_height: True
+                                        padding: '3dp'
+                                        spacing: '3dp'
+
+                            MDBackdropBackLayer:
+                                ScreenManager:
+                                    id: mgr2
+                                    transition: NoTransition()
+                                    Screen:
+                                        name: 'apple'
+                                        ScrollView:
+                                            MDGridLayout:
+                                                cols: 1
+                                                adaptive_height: True
+                                                id: cont0
+                                    Screen:
+                                        name: 'python'
+                                        ScrollView:
+                                            MDBoxLayout:
+                                                cols: 1
+                                                adaptive_height: True
+                                                id: cont1
+                                    Screen:
+                                        name: 'india'
+                                        ScrollView:
+                                            MDBoxLayout:
+                                                cols: 1
+                                                adaptive_height: True
+                                                id: cont2
+                                    Screen:
+                                        name: 'android'
+                                        ScrollView:
+                                            MDBoxLayout:
+                                                cols: 1
+                                                adaptive_height: True
+                                                id: cont3
+                                    Screen:
+                                        name: 'earth'
+                                        ScrollView:
+                                            MDBoxLayout:
+                                                cols: 1
+                                                adaptive_height: True
+                                                id: cont4
+                                    Screen:
+                                        name: 'space'
+                                        ScrollView:
+                                            MDBoxLayout:
+                                                cols: 1
+                                                adaptive_height: True
+                                                id: cont5
+                                    Screen:
+                                        name: 'marvel'
+                                        ScrollView:
+                                            MDBoxLayout:
+                                                cols: 1
+                                                adaptive_height: True
+                                                id: cont6
+                                    Screen:
+                                        name: 'game'
+                                        ScrollView:
+                                            MDBoxLayout:
+                                                cols: 1
+                                                adaptive_height: True
+                                                id: cont7
+                                    Screen:
+                                        name: 'naming'
+                                        ScrollView:
+                                            MDBoxLayout:
+                                                cols: 1
+                                                adaptive_height: True
+                                                id: cont8
+                                    Screen:
+                                        name: 'tech'
+                                        ScrollView:
+                                            MDBoxLayout:
+                                                cols: 1
+                                                adaptive_height: True
+                                                id: cont9
+
+
+        Screen:
+            name: "Quiz_page"
+            id: quiz_page
+            FitImage:
+                source: 'Images/Quiz/background.png'
+            BoxLayout:
+                orientation: 'vertical'
+                MDToolbar:
+                    id: quiz_tb
+                    title: ''
+                    elevation: 8
+                    height: '45dp'
+                    md_bg_color: rgba(91, 0, 45, 255)
+                    left_action_items: [['chevron-double-left', lambda x: app.confirm_exit('Quiz')]]
+
+                Screen:
+                    BoxLayout:
+                        orientation: 'vertical'
+                        padding: '5dp'
+                        BoxLayout:
+                            size_hint_y: .1
+                            padding: '20dp'
+                            RelativeLayout:
+                                MDProgressBar:
+                                    pos_hint: {'center_x': .5, 'center_y': .5}
+                                    value: 100
+                                    color: rgba(76,13,17,5)
+
+                                MDProgressBar:
+                                    id: progress
+                                    pos_hint: {'center_x': .5, 'center_y': .5}
+                                    value: 0
+                                    color: rgba(255, 222, 37, 255)
+
+                                MDIcon:
+                                    id: pg1_back
+                                    icon: 'circle'
+                                    size_hint: .1, .02
+                                    pos_hint: {'center_x': 0, 'center_y': .45}
+                                    theme_text_color: 'Custom'
+                                    text_color: 1,1,1,1
+                                MDIcon:
+                                    id: pg1_icon
+                                    icon: 'numeric-1-circle'
+                                    size_hint: .1, .02
+                                    pos_hint: {'center_x': 0, 'center_y': .45}
+                                    theme_text_color: 'Custom'
+                                    text_color: rgba(17, 20, 219, 255)
+
+                                MDIcon:
+                                    id: pg2_back
+                                    icon: 'circle'
+                                    size_hint: .1, .02
+                                    pos_hint: {'center_x': .25, 'center_y': .45}
+                                    theme_text_color: 'Custom'
+                                    text_color: 1,1,1,1
+                                MDIcon:
+                                    id: pg2_icon
+                                    icon: 'numeric-2-circle'
+                                    size_hint: .1, .02
+                                    pos_hint: {'center_x': .25, 'center_y': .45}
+                                    theme_text_color: 'Custom'
+                                    text_color: rgba(17, 20, 219, 255)
+
+                                MDIcon:
+                                    id: pg3_back
+                                    icon: 'circle'
+                                    size_hint: .1, .02
+                                    pos_hint: {'center_x': .5, 'center_y': .45}
+                                    theme_text_color: 'Custom'
+                                    text_color: 1,1,1,1
+                                MDIcon:
+                                    id: pg3_icon
+                                    icon: 'numeric-3-circle'
+                                    size_hint: .1, .02
+                                    pos_hint: {'center_x': .5, 'center_y': .45}
+                                    theme_text_color: 'Custom'
+                                    text_color: rgba(17, 20, 219, 255)
+
+                                MDIcon:
+                                    id: pg4_back
+                                    icon: 'circle'
+                                    size_hint: .1, .02
+                                    pos_hint: {'center_x': .75, 'center_y': .45}
+                                    theme_text_color: 'Custom'
+                                    text_color: 1,1,1,1
+                                MDIcon:
+                                    id: pg4_icon
+                                    icon: 'numeric-4-circle'
+                                    size_hint: .1, .02
+                                    pos_hint: {'center_x': .75, 'center_y': .45}
+                                    theme_text_color: 'Custom'
+                                    text_color: rgba(17, 20, 219, 255)
+
+                                MDIcon:
+                                    id: pg5_back
+                                    icon: 'circle'
+                                    size_hint: .1, .02
+                                    pos_hint: {'center_x': 1, 'center_y': .45}
+                                    theme_text_color: 'Custom'
+                                    text_color: 1,1,1,1
+                                MDIcon:
+                                    id: pg5_icon
+                                    icon: 'numeric-5-circle'
+                                    size_hint: .1, .02
+                                    pos_hint: {'center_x': 1, 'center_y': .45}
+                                    theme_text_color: 'Custom'
+                                    text_color: rgba(17, 20, 219, 255)
+
+                        MDCard:
+                            padding: '15dp'
+                            size_hint_y: .4
+                            border_radius: '10dp'
+                            radius: [dp(15)]
+                            background: 'Images/Quiz/qn_card.png'
+                            MDLabel:
+                                id: qn_card
+                                font_style: 'H6'
+                                font_size: '22dp'
+                                theme_text_color: 'Custom'
+                                text_color: 1,1,1,1
+                                bold: True
+
+                        MDGridLayout:
+                            cols: 2
+                            rows: 2
+                            spacing: '10dp'
+                            padding: '10dp'
+                            MDCard:
+                                id: opt1
+                                text: ''
+                                radius: [dp(0), dp(20), dp(0), dp(20)]
+                                on_release:
+                                    app.get_response(self.text, opt='A')
+                                RelativeLayout:
+                                    FitImage:
+                                        source: 'Images/Quiz/quiz_opt.png'
+                                        radius: [dp(0),dp(20),dp(0),dp(20)]
+                                    MDIcon:
+                                        id: opt1_icon
+                                        icon: 'alpha-a-circle-outline'
+                                        font_size: '30dp'
+                                        theme_text_color: 'Custom'
+                                        text_color: 1,1,1,1
+                                        size_hint: .2, .2
+                                        pos_hint: {'top':.98,'right': .95}
+
+                                    MDLabel:
+                                        text: opt1.text
+                                        theme_text_color: 'Custom'
+                                        text_color: 1,1,1,1
+                                        markup:True
+                                        bold: True
+                                        halign: 'center'
+                                        font_style: 'H6'
+
+                            MDCard:
+                                id: opt2
+                                radius: [dp(20),dp(0),dp(20),dp(0)]
+                                text: ''
+                                on_release:
+                                    app.get_response(self.text, opt='B')
+                                RelativeLayout:
+                                    FitImage:
+                                        source: 'Images/Quiz/quiz_opt.png'
+                                        radius: [dp(20),dp(0),dp(20),dp(0)]
+                                    MDIcon:
+                                        id: opt2_icon
+                                        icon: 'alpha-b-circle-outline'
+                                        font_size: '30dp'
+                                        theme_text_color: 'Custom'
+                                        text_color: 1,1,1,1
+                                        size_hint: .2, .2
+                                        pos_hint: {'top':.98,'right': .95}
+
+                                    MDLabel:
+                                        text: opt2.text
+                                        theme_text_color: 'Custom'
+                                        text_color: 1,1,1,1
+                                        markup:True
+                                        bold: True
+                                        halign: 'center'
+                                        font_style: 'H6'
+                            MDCard:
+                                id: opt3
+                                radius: [dp(20),dp(0),dp(20),dp(0)]
+                                text: ''
+                                on_release:
+                                    app.get_response(self.text, opt='C')
+                                RelativeLayout:
+                                    FitImage:
+                                        source: 'Images/Quiz/quiz_opt.png'
+                                        radius: [dp(20),dp(0),dp(20),dp(0)]
+                                    MDIcon:
+                                        id: opt3_icon
+                                        icon: 'alpha-c-circle-outline'
+                                        font_size: '30dp'
+                                        theme_text_color: 'Custom'
+                                        text_color: 1,1,1,1
+                                        size_hint: .2, .2
+                                        pos_hint: {'top':.98,'right': .95}
+
+                                    MDLabel:
+                                        text: opt3.text
+                                        theme_text_color: 'Custom'
+                                        text_color: 1,1,1,1
+                                        markup:True
+                                        bold: True
+                                        halign: 'center'
+                                        font_style: 'H6'
+                            MDCard:
+                                id: opt4
+                                text: ''
+                                radius: [dp(0),dp(20),dp(0),dp(20)]
+                                on_release:
+                                    app.get_response(self.text, opt='D')
+                                RelativeLayout:
+                                    FitImage:
+                                        source: 'Images/Quiz/quiz_opt.png'
+                                        radius: [dp(0),dp(20),dp(0),dp(20)]
+                                    MDIcon:
+                                        id: opt4_icon
+                                        icon: 'alpha-d-circle-outline'
+                                        font_size: '30dp'
+                                        theme_text_color: 'Custom'
+                                        text_color: 1,1,1,1
+                                        size_hint: .2, .2
+                                        pos_hint: {'top':.98,'right': .95}
+
+                                    MDLabel:
+                                        text: opt4.text
+                                        theme_text_color: 'Custom'
+                                        text_color: 1,1,1,1
+                                        markup:True
+                                        bold: True
+                                        halign: 'center'
+                                        font_style: 'H6'
+                        BoxLayout:
+                            padding: '5dp'
+                            size_hint_y: .3
+                            RelativeLayout:
+                                MDRaisedButton:
+                                    id: next_qn
+                                    text: 'Next'
+                                    font_size: sp(20)
+                                    size_hint: .47, .55
+                                    md_bg_color: 1,1,1,0
+                                    pos_hint: {'right': .98, 'center_y': .6}
+                                    on_release: app.is_ans()
+                                    canvas.before:
+                                        Color:
+                                            rgba: rgba(0,76,62,255)
+                                        RoundedRectangle:
+                                            radius: [dp(10)]
+                                            pos: self.pos
+                                            size: self.size
+
+                                MDFillRoundFlatIconButton:
+                                    id: end_quiz
+                                    icon: "chevron-double-right"
+                                    text: 'End Quiz'
+                                    font_size: sp(18)
+                                    size_hint: .47, .55
+                                    md_bg_color: 1,0,0,.25
+                                    pos_hint: {'center_x': .25, 'center_y': .6}
+                                    on_release: app.force_end_quiz()
+        Screen:
+            name: 'Result'
+            canvas.before:
+                Rectangle:
+                    source: 'Images/Result/background.png'
+                    pos: self.pos
+                    size: self.size
+            MDBoxLayout:
+                orientation: 'vertical'
+                MDToolbar:
+                    id:result_tb
+                    title: 'Result'
+                    elevation: 10
+                    height: '45dp'
+                    md_bg_color: rgba(77, 0, 85, 255)
+                    left_action_items: [['chevron-double-left', lambda x: app.confirm_exit('Result')]]
+
+                RecycleView:
+                    id: result_recycler
+                    viewclass: 'Result_card'
+                    key_size: 'height'
+                    orientation: 'vertical'
+                    on_scroll_start: app.scroll_pos_y = args[1].pos[1]
+                    on_scroll_move: app.on_scroll(args[1].pos[1])
+
+                    RecycleBoxLayout:
+                        orientation: 'vertical'
+                        default_size_hint: 1, None
+                        default_size: None, dp(250)
+                        size_hint_y: None
+                        height: self.minimum_height
+                        spacing: '20dp'
+                        padding: '5dp'
+
+            MDRaisedButton:
+		        id: res_hm
+                text: '    Home'
+                pos_hint: {'center_x': .5, 'center_y': .06}
+                md_bg_color: 1,1,1,0
+                elevation_normal: 14
+                font_size: '18dp'
+                size_hint: .3, .06
+                on_release: app.confirm_exit('Result')
+                canvas.before:
+                    Color:
+                        rgba: rgba(77, 0, 85, 255)
+                    RoundedRectangle:
+                        radius: [dp(10)]
+                        pos: self.pos
+                        size: self.size
+            MDIcon:
+                id: res_hm_icon
+                icon: 'home'
+                font_size: '23dp'
+                theme_text_color: 'Custom'
+                text_color: 1,1,1,1
+                size_hint: .2, .2
+                pos_hint: {'center_x': .47, 'center_y': .065}
+
+
+<Result_card@MDCard>:
+    id: result_card
+    qn_icon: ''
+    text: ''
+    opt1: ''
+    opt2: ''
+    opt3: ''
+    opt4: ''
+    opt1_back: [1,1,1,1]
+    opt2_back: [1,1,1,1]
+    opt3_back: [1,1,1,1]
+    opt4_back: [1,1,1,1]
+    opt1_right_icon: ''
+    opt2_right_icon: ''
+    opt3_right_icon: ''
+    opt4_right_icon: ''
+    orientation: 'vertical'
+    radius: [dp(10)]
+    background:'Images/Result/result_card.jpg'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: '2dp'
+        spacing: '2dp'
+        MDRelativeLayout:
+            size_hint_y: .4
+            MDIcon:
+                icon: result_card.qn_icon
+                pos_hint: {'right': 1, 'center_y': .2}
+                size_hint_x: .10
+                font_size: '30dp'
+                theme_text_color: 'Custom'
+                text_color: 1,1,1,1
+
+            MDLabel:
+                text: result_card.text
+                theme_text_color: 'Custom'
+                text_color: 1,1,1,1
+                font_style: 'H6'
+                font_size: '19dp'
+                padding_x: '5dp'
+
+        MDSeparator:
+            height: '1.5dp'
+            color: 1,1,1,.5
+
+        MDRelativeLayout:
+            md_bg_color: result_card.opt1_back
+            size_hint_y: .15
+            MDBoxLayout:
+                padding: '10dp'
+                MDIcon:
+                    icon: 'alpha-a-circle-outline'
+                    size_hint_x: .15
+                    theme_text_color: 'Custom'
+                    text_color: 1,1,1,1
+                MDLabel:
+                    text: result_card.opt1
+                    theme_text_color: 'Custom'
+                    bold: True
+                    text_color: 1,1,1,1
+                MDIcon:
+                    icon: result_card.opt1_right_icon
+                    size_hint_x: .15
+                    theme_text_color: 'Custom'
+                    text_color: 1,1,1,1
+
+        MDSeparator:
+            height: "1dp"
+            color: 1,1,1,.5
+
+        MDRelativeLayout:
+            md_bg_color: result_card.opt2_back
+            size_hint_y: .15
+            MDBoxLayout:
+                padding:'10dp'
+                MDIcon:
+                    icon: 'alpha-b-circle-outline'
+                    size_hint_x: .15
+                    theme_text_color: 'Custom'
+                    text_color: 1,1,1,1
+                MDLabel:
+                    text: result_card.opt2
+                    theme_text_color: 'Custom'
+                    bold: True
+                    text_color: 1,1,1,1
+                MDIcon:
+                    icon: result_card.opt2_right_icon
+                    size_hint_x: .15
+                    theme_text_color: 'Custom'
+                    text_color: 1,1,1,1
+
+        MDSeparator:
+            height: '1dp'
+            color: 1,1,1,.5
+
+        MDRelativeLayout:
+            md_bg_color: result_card.opt3_back
+            size_hint_y: .15
+            MDBoxLayout:
+                padding: '10dp'
+                MDIcon:
+                    icon: 'alpha-c-circle-outline'
+                    size_hint_x: .15
+                    theme_text_color: 'Custom'
+                    text_color: 1,1,1,1
+                MDLabel:
+                    text: result_card.opt3
+                    theme_text_color: 'Custom'
+                    bold: True
+                    text_color: 1,1,1,1
+                MDIcon:
+                    icon: result_card.opt3_right_icon
+                    size_hint_x: .15
+                    theme_text_color: 'Custom'
+                    text_color: 1,1,1,1
+
+        MDSeparator:
+            height: '1dp'
+            color: 1,1,1,.5
+
+        MDRelativeLayout:
+            md_bg_color: result_card.opt4_back
+            size_hint_y: .15
+            radius: [dp(0),dp(0),dp(10),dp(10)]
+            MDBoxLayout:
+                padding: '10dp'
+                MDIcon:
+                    icon: 'alpha-d-circle-outline'
+                    size_hint_x: .15
+                    theme_text_color: 'Custom'
+                    text_color: 1,1,1,1
+                MDLabel:
+                    text: result_card.opt4
+                    theme_text_color: 'Custom'
+                    bold: True
+                    text_color: 1,1,1,1
+                MDIcon:
+                    icon: result_card.opt4_right_icon
+                    size_hint_x: .15
+                    theme_text_color: 'Custom'
+                    text_color: 1,1,1,1
+
+<CustButton1>:
+    text: '   EXIT   '
+    md_bg_color: rgba(77, 0, 85, 255)
+    on_release: app.reset_data()
+
+<CustButton2>:
+    md_bg_color: rgba(0, 36, 106, 255)
+
+<ItemFirstLayer>:
+    icon: ''
+    text: ''
+    on_release:
+        app.show_score(self.text)
+    ImageLeftWidget:
+        source: root.icon
+<QuizLoader>
+    adaptive_height: True
+    MDSpinner:
+        size_hint: None, None
+        pos_hint: {'center_x': .5, 'center_y': .7}
+        size: '50dp', '50dp'
+        indeterminate: True
+        active: True
+        palette:
+            [0.3568627450980392, 0.3215686274509804, 0.8666666666666667, 1], [0.8862745098039215, 0.36470588235294116, 0.592156862745098, 1], [0.28627450980392155, 0.8431372549019608, 0.596078431372549, 1], [0.8784313725490196, 0.9058823529411765, 0.40784313725490196, 1],
+
+<AboutDialog>:
+    spacing: '5dp'
+    orientation: 'vertical'
+    MDLabel:
+        text: 'Quizora'
+        font_style: 'H5'
+        bold: True
+        size_hint_y: None
+        height: self.texture_size[1]
+    MDSeparator:
+        height: '2dp'
+    MDLabel:
+        text: '[b]Version:[/b] 2.0(beta)'
+        font_style: 'H6'
+        markup: True
+        size_hint_y: None
+        height: self.texture_size[1]
+    MDLabel:
+        text: '[b]Developers:[/b] \n    WhiteHat StormBreakers'
+        markup: True
+        font_style: 'Body2'
+        size_hint_y: None
+        height: self.texture_size[1]
+    MDLabel:
+        text: '[b]School:[/b] NMHSS@[size=12]Mettupalayam[/size]'
+        markup: True
+        font_style: 'Body2'
+        size_hint_y: None
+        height: self.texture_size[1]
+    MDLabel:
+        text: 'A Project for LCT Festival @[b]KGiSL[/b]'
+        markup: True
+        size_hint_y: None
+        theme_text_color: 'Secondary'
+        height: self.texture_size[1]
+        font_style: 'Caption'
