@@ -11,4 +11,4 @@
 4) If your OpenGL version is <2.0, try upgrading your graphics driver to the latest.
 
 
-#### Run the application by executing the main.py file.
+### Run the application by executing the main.py file.
