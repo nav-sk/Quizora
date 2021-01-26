@@ -1,6 +1,6 @@
 # WhiteHat StormBreakers
 # National Matric Hr Sec School, Mettupalayam
-# A project for LCT Coding Festival @ KGiSL
+## A project for LCT Coding Festival @ KGiSL
 
 
 This applicatíon needs the following:
