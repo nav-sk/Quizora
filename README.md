@@ -12,3 +12,6 @@
 
 
 ### Run the application by executing the main.py file.
+## Authors:
+1) Naveen S.K 
+2) Mohammed Arshath J
